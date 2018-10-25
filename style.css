@@ -1,0 +1,22 @@
+
+/* Note.html Styling */
+
+* /* (*) means all the elements on that page */{
+    text-align: center;
+    clear: both;
+}
+.changelog /* Changelog class */{
+    width: 900px;
+    margin: auto;
+    font-size: 120%;
+}
+.changelog, th, td /* Changelog, table header and table data class */{
+    border: 2px solid black;
+    border-radius: 8px;
+}
+.notesparagraph /* First paragraph class */{
+    font-size: 90%;
+}
+dt, dd {
+    text-align: left;
+}
