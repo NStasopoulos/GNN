@@ -1,2 +1,0 @@
-# GNN
-Nikolas Panagi

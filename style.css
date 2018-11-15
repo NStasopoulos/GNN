@@ -3,7 +3,60 @@
 
 * /* (*) means all the elements on that page */{
     text-align: center;
-    clear: both;
+}
+
+.bg-img {
+    /* The image used */
+    background-image: url("Images/nav.png");
+
+    min-height: 150px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    /* Needed to position the navbar */
+    position: relative;
+}
+
+/* Position the navbar container inside the image */
+.container {
+    position: absolute;
+    margin: 20px;
+    width: auto;
+}
+
+/* The navbar */
+.topnav {
+    overflow: hidden;
+
+}
+
+/* Navbar links */
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 30px 63px;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.topnav a:hover {
+    text-shadow: gold 4px 4px 20px;
+    color: black;
+}
+.active {
+    text-shadow: gold 4px 4px 20px;
+}
+body {
+    background-image: url(Images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background-attachment: fixed;
+
 }
 .changelog /* Changelog class */{
     width: 900px;
@@ -15,7 +68,7 @@
     border-radius: 8px;
 }
 .notesparagraph /* First paragraph class */{
-    font-size: 90%;
+    font-size: 120%;
 }
 dt, dd {
     text-align: left;
