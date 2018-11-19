@@ -1,7 +1,5 @@
-
-/* Note.html Styling */
-
-* /* (*) means all the elements on that page */{
+/* GENERAL */
+* {
     text-align: center;
 }
 
@@ -40,7 +38,7 @@
     text-align: center;
     padding: 30px 63px;
     text-decoration: none;
-    font-size: 40px;
+    font-size: 280%;
 }
 
 .topnav a:hover {
@@ -56,8 +54,34 @@ body {
     background-size: 100% 100%;
     background-position: center;
     background-attachment: fixed;
+}
+.pirate {
+    width: 70%;
+    height: 320px;
+    margin-top: 100px;
+
 
 }
+
+/* INDEX.HTML */
+
+.indexheader {
+    font-size: 400%;
+}
+.indexpar {
+    font-size: 250%;
+}
+.indexbird {
+    width: 60%;
+    margin-left: 40%;
+    margin-top: 50%;
+}
+
+/* GAME.HTML */
+
+/* TEST.HTML */
+
+/* NOTES.HTML */
 .changelog /* Changelog class */{
     width: 900px;
     margin: auto;
