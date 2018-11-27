@@ -108,3 +108,20 @@ tr, td {
 dt, dd {
     text-align: left;
 }
+
+/*LOGIN HTML*/
+
+.loginname, .loginappname {
+    width: 800px;
+    height: 200px;
+    font-size: 400%;
+}
+.logininfo {
+    font-size: 700%;
+}
+.SubmitButton {
+    width: 550px;
+    height: 150px;
+    margin-top: 80px;
+    font-size: 450%;
+}

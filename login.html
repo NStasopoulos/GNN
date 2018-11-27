@@ -5,19 +5,25 @@
     <title>Title</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="list()">
+<body>
 <div class="bg-img">
     <div class="container">
         <div class="topnav">
             <a href="index.html">Home</a>
-            <a class="active" href="app.html">Game</a>
+            <a href="app.html">Game</a>
             <a href="test.html">Test</a>
             <a href="notes.html">Notes</a>
         </div>
     </div>
 </div>
-<div id="challenges"></div>
 
+<form>
+    <p class="logininfo">Username:</p>
+    <input class="loginname" type="text" name="Username"><br>
+    <p class="logininfo">App name:</p>
+    <input class="loginappname" type="text" name="AppName"><br>
+    <input class="SubmitButton" type="submit" value="Submit" onclick="">
+</form>
 
 <img class="pirate" src="Images/pirate.png">
 <script src="th-api.js"></script>
