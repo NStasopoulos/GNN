@@ -80,7 +80,16 @@ body {
     width: 100%;
 }
 
-/* GAME.HTML */
+#StartHeader {
+    font-size: 450%;
+}
+
+/* APP.HTML */
+
+#challenges {
+    font-size: 400%;
+    list-style: none;
+}
 
 /* TEST.HTML */
 
@@ -111,17 +120,49 @@ dt, dd {
 
 /*LOGIN HTML*/
 
-.loginname, .loginappname {
+#loginname, #loginappname {
     width: 800px;
     height: 200px;
     font-size: 400%;
 }
 .logininfo {
-    font-size: 700%;
+    font-size: 500%;
 }
-.SubmitButton {
+#SubmitButton {
     width: 550px;
     height: 150px;
     margin-top: 80px;
     font-size: 450%;
+}
+
+/* QUESTIONS HTML*/
+
+#qText {
+    font-size: 500%;
+    font-weight: bold;
+}
+
+#qType {
+    font-size: 400%;
+}
+
+.qAnswer {
+    display: block;
+    margin: auto;
+    width: 70%;
+    height: 250px;
+    font-size: 100%;
+}
+
+.qAnswerButton {
+    width: 550px;
+    height: 150px;
+    margin: 90px;
+    font-size: 100%;
+}
+
+.qAnswerSkipButton {
+    width: 550px;
+    height: 150px;
+    font-size: 100%;
 }
