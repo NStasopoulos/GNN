@@ -95,19 +95,19 @@ function questions() {
                 var qType = document.getElementById("qType");
                 qType.innerHTML = "True <input class='radio' type='radio' name='answer' value='True'>" +
                     "False <input class='radio' type='radio' name='answer' value='False'>" +
-                    "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer()'>" +
+                    "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer(object)'>" +
                     "<input class='skipBut' type='button' name='Skip' value='Skip Question' onclick='Skip()'>"
             }
             else if (object.questionType === "INTEGER") {
                 var qType = document.getElementById("qType");
                 qType.innerHTML = "Your answer: <input class='integer' type='number' name='answer'>" +
-                    "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer()'>" +
+                    "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer(object)'>" +
                     "<input class='skipBut' type='button' name='Skip' value='Skip Question' onclick='Skip()'>"
             }
             else if (object.questionType === "NUMERIC") {
                 var qType = document.getElementById("qType");
                 qType.innerHTML = "Your answer: <input class='integer' type='number' name='answer'>" +
-                    "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer()'>" +
+                    "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer(object)'>" +
                     "<input class='skipBut' type='button' name='Skip' value='Skip Question' onclick='Skip()'>"
             }
             else if (object.questionType === "MCQ") {
@@ -116,7 +116,7 @@ function questions() {
                     "(B) <input class='radio' type='radio' name='answer' value='B'>" +
                     "(C) <input class='radio' type='radio' name='answer' value='C'>" +
                     "(D) <input class='radio' type='radio' name='answer' value='D'>" +
-                    "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer()'>" +
+                    "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer(object)'>" +
                     "<input class='skipBut' type='button' name='Skip' value='Skip Question' onclick='Skip()'>"
             }
             else if (object.questionType === "TEXT") {
@@ -137,24 +137,28 @@ function questions() {
 }
 
 function Answer(object) {
-    console.log(object.questionType);
+    //console.log(object.questionType);
     if (object.questionType === "TEXT") {
         var answer = document.getElementsByClassName("text");
         var ans = answer[0].value;
     }
     else if (object.questionType === "BOOLEAN" || object.questionType === "MCQ") {
         var answer = document.getElementsByClassName("radio");
-        var ans = answer[0].value;
-        for (let i = 0; i < answer[0].length; i++) {
-            if (ansForm[0].elements[i].checked)
-                ans = answer[0].elements[i].value;
+        var ans;
+        var length = answer.length;
+        for (let i = 0; i < length; i++) {
+            if (answer[i].checked)
+                ans = answer[i].value;
         }
     }
     else if (object.questionType === "NUMERIC" || object.questionType === "INTEGER") {
         var answer = document.getElementsByClassName("integer");
         var ans = answer[0].value;
     }
-    console.log(ans)
+
+    if (ans === undefined)
+        alert("Please answer the question in order to proceed!");
+
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -171,6 +175,6 @@ function Answer(object) {
 
 };
 
-    xhttp.open("GET", "https://codecyprus.org/th/api/answer?session=" + document.cookie + "&answer=" + ans.value , true);
+    xhttp.open("GET", "https://codecyprus.org/th/api/answer?session=" + document.cookie + "&answer=" + ans , true);
     xhttp.send();
 }
