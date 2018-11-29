@@ -143,26 +143,40 @@ dt, dd {
 }
 
 #qType {
-    font-size: 400%;
+    font-size: 600%;
 }
 
-.qAnswer {
+.radio {
+    width:60px;
+    height:60px;
+    margin-bottom: 100px;
+}
+
+.submitBut {
     display: block;
     margin: auto;
-    width: 70%;
-    height: 250px;
-    font-size: 100%;
+    width:600px;
+    height:200px;
+    font-size: 80px;
 }
 
-.qAnswerButton {
-    width: 550px;
-    height: 150px;
-    margin: 90px;
-    font-size: 100%;
+.skipBut {
+    width:600px;
+    height:200px;
+    font-size: 80px;
+    margin-top: 100px;
 }
 
-.qAnswerSkipButton {
-    width: 550px;
+.integer {
+    width: 60%;
     height: 150px;
     font-size: 100%;
+    margin-bottom: 100px;
+}
+
+.text {
+    width: 80%;
+    height: 200px;
+    font-size: 90%;
+    margin-bottom: 100px;
 }
