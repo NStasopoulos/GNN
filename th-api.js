@@ -137,7 +137,7 @@ function questions() {
 }
 
 function Answer(object) {
-    //console.log(object.questionType);
+    console.log(object.questionType);
     if (object.questionType === "TEXT") {
         var answer = document.getElementsByClassName("text");
         var ans = answer[0].value;
@@ -155,9 +155,8 @@ function Answer(object) {
         var answer = document.getElementsByClassName("integer");
         var ans = answer[0].value;
     }
+    console.log(ans);
 
-    if (ans === undefined)
-        alert("Please answer the question in order to proceed!");
 
     var xhttp = new XMLHttpRequest();
 
@@ -166,8 +165,14 @@ function Answer(object) {
 
             object = JSON.parse(this.responseText);
 
-            //code here
-
+            if (object.correct === true)
+                location.reload();
+            else if (ans === undefined || ans === "" || ans.length === 0 || ans == null) {
+                alert("Please answer the question in order to proceed!");
+            }
+            else if(object.correct === false) {
+                alert("Unfortunately your answer is wrong. Please Try again.");
+            }
         }
         else {
             //TODO If response not received (error).
@@ -175,6 +180,6 @@ function Answer(object) {
 
 };
 
-    xhttp.open("GET", "https://codecyprus.org/th/api/answer?session=" + document.cookie + "&answer=" + ans , true);
+    xhttp.open("GET", "https://codecyprus.org/th/api/answer?session=" + document.cookie + "&answer=" + ans, true);
     xhttp.send();
 }
