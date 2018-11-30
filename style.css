@@ -52,8 +52,8 @@ body {
     text-shadow: white 1px 1px 15px, gray 2px 2px 5px;
 }
 .pirate {
-    width: 70%;
-    height: 200px;
+    width: 50%;
+    height: 150px;
     bottom: 0;
     position: absolute;
     transform: translate(-50%,0)
