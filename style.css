@@ -54,7 +54,7 @@ body {
 }
 
 .active {
-    text-shadow: #ffd00f 0 0 13px;
+    text-shadow: gold 0 0 12px, gold 0 0 12px, gold 0 0 12px;
 }
 
 /*------------*/
@@ -162,20 +162,20 @@ dt, dd {
 /*----------*/
 
 #loginname, #loginappname {
-    width: 800px;
-    height: 200px;
-    font-size: 400%;
+    width: 280px;
+    height: 80px;
+    font-size: 25px;
 }
 
 .logininfo {
-    font-size: 500%;
+    font-size: 30px;
 }
 
 #SubmitButton {
-    width: 550px;
-    height: 150px;
+    width: 280px;
+    height: 100px;
     margin-top: 80px;
-    font-size: 450%;
+    font-size: 30px;
 }
 
 /*---------------*/
@@ -183,12 +183,12 @@ dt, dd {
 /*---------------*/
 
 #qText {
-    font-size: 500%;
+    font-size: 30px;
     font-weight: bold;
 }
 
 #qType {
-    font-size: 600%;
+    font-size: 30px;
 }
 
 .radio {
@@ -198,18 +198,16 @@ dt, dd {
 }
 
 .submitBut {
-    display: block;
-    margin: auto;
-    width:600px;
-    height:200px;
-    font-size: 80px;
+    width: 280px;
+    height: 100px;
+    font-size: 35px;
 }
 
 .skipBut {
-    width:600px;
-    height:200px;
-    font-size: 80px;
-    margin-top: 100px;
+    width: 280px;
+    height: 100px;
+    font-size: 35px;
+    margin-top: 20px;
 }
 
 .integer {
@@ -220,10 +218,10 @@ dt, dd {
 }
 
 .text {
-    width: 80%;
-    height: 200px;
-    font-size: 90%;
-    margin-bottom: 100px;
+    width: 280px;
+    height: 80px;
+    font-size: 30px;
+    margin-bottom: 40px;
 }
 
 /*-------*/
@@ -236,7 +234,7 @@ dt, dd {
         text-align: center;
         padding: 25px 8px;
         text-decoration: none;
-        font-size: 120%;
+        font-size: 160%;
         display: inline;
         transition: 1s;
         font-weight: bold;
@@ -248,6 +246,26 @@ dt, dd {
         font-size: 60%;
         text-decoration: none;
         text-transform: uppercase;
+        transition: 1s;
+    }
+}
+
+@media(min-width: 605px) {
+        .submitBut {
+            margin-right: 30px;
+    }
+}
+
+@media(min-width: 420px) {
+    .topnav a {
+        padding: 25px 20px;
+        transition: 1s;
+    }
+}
+@media(min-width: 620px) {
+    .topnav a {
+        padding: 25px 40px;
+
         transition: 1s;
     }
 }
