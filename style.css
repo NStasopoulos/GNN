@@ -1,6 +1,7 @@
 /* GENERAL */
 * {
     text-align: center;
+    font-family: Arial,Helvetica,sans-serif;
 }
 
 .bg-img {
@@ -19,7 +20,6 @@
 
 /* Position the navbar container inside the image */
 .container {
-    position: absolute;
     margin: 10px;
     width: auto;
 }
@@ -27,25 +27,23 @@
 /* The navbar */
 .topnav {
     overflow: hidden;
-
+    padding-top: 36px;
 }
 
 /* Navbar links */
 .topnav a {
-    float: left;
     color: black;
     text-align: center;
-    padding: 25px 10px;
+    padding: 25px 8px;
     text-decoration: none;
     font-size: 25px;
+    display: inline;
+    font-weight: bold;
+    transition: 5s;
 }
 
-.topnav a:hover {
-    text-shadow: gold 4px 4px 20px;
-    color: black;
-}
 .active {
-    text-shadow: gold 4px 4px 20px;
+    text-shadow: #1200ff 0 0 13px;
 }
 body {
     background-image: url(Images/bg.jpg);
@@ -60,6 +58,10 @@ body {
     margin-top: 100px;
 
 
+}
+
+#container {
+    height: 90%;
 }
 
 /* INDEX.HTML */
@@ -177,4 +179,18 @@ dt, dd {
     height: 200px;
     font-size: 90%;
     margin-bottom: 100px;
+}
+/* Media Queries */
+
+@media(max-width: 373px){
+    .topnav a {
+        color: black;
+        text-align: center;
+        padding: 25px 8px;
+        text-decoration: none;
+        font-size: 22px;
+        display: inline;
+        transition: 1s;
+        font-weight: bold;
+    }
 }
