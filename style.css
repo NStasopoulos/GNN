@@ -126,6 +126,11 @@ div, body{
     text-transform: uppercase;
 }
 
+.apptreasure {
+    width: 60%;
+    margin-top: 80px;
+}
+
 /*-----------*/
 /* TEST.HTML */
 /*-----------*/
@@ -172,6 +177,11 @@ dt, dd {
     text-align: left;
 }
 
+.notesmap {
+    width: 60%;
+    margin-top: 20px;
+}
+
 /*----------*/
 /*LOGIN HTML*/
 /*----------*/
@@ -189,8 +199,13 @@ dt, dd {
 #SubmitButton {
     width: 280px;
     height: 100px;
-    margin-top: 80px;
+    margin-top: 60px;
     font-size: 30px;
+}
+
+.loginpirate {
+    width: 50%;
+    margin-top: 40px;
 }
 
 /*---------------*/
