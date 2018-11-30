@@ -183,3 +183,24 @@ function Answer(object) {
     xhttp.open("GET", "https://codecyprus.org/th/api/answer?session=" + document.cookie + "&answer=" + ans, true);
     xhttp.send();
 }
+
+function Skip() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+
+            object = JSON.parse(this.responseText);
+
+            //code here
+
+        }
+        else {
+            //TODO If response not received (error).
+        }
+
+    };
+
+    xhttp.open("GET", "https://codecyprus.org/th/api/question?session=" + document.cookie , true);
+    xhttp.send();
+}
