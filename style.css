@@ -135,7 +135,11 @@ div, body{
 /* TEST.HTML */
 /*-----------*/
 
-
+.testtools {
+    width: 60%;
+    margin-top: 20px;
+    -webkit-animation: rotation 10s infinite linear;
+}
 
 /*------------*/
 /* NOTES.HTML */
@@ -222,8 +226,8 @@ dt, dd {
 }
 
 .radio {
-    width:70px;
-    height:70px;
+    width:30px;
+    height:30px;
     margin-bottom: 100px;
 }
 
@@ -296,7 +300,28 @@ dt, dd {
 @media(min-width: 620px) {
     .topnav a {
         padding: 25px 40px;
-
         transition: 1s;
+    }
+}
+
+@media(min-width: 506px) {
+    .submitBut {
+        display: block;
+        margin: auto;
+    }
+}
+
+@media(min-width: 800px) {
+    #challenges a {
+        font-size: 40px;
+    }
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
     }
 }
