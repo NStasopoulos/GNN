@@ -10,7 +10,6 @@
     min-height: 100px;
 
     /* Center and scale the image nicely */
-    background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -36,9 +35,9 @@
     float: left;
     color: black;
     text-align: center;
-    padding: 13px 18px;
+    padding: 25px 14px;
     text-decoration: none;
-    font-size: 45px;
+    font-size: 25px;
 }
 
 .topnav a:hover {
@@ -66,12 +65,12 @@ body {
 /* INDEX.HTML */
 
 .indexheader {
-    font-size: 55px;
+    font-size: 35px;
     width: 90%;
     margin: auto;
 }
 .indexpar {
-    font-size: 40px;
+    font-size: 25px;
     width: 90%;
     margin: auto;
 }
@@ -80,7 +79,7 @@ body {
 }
 
 #StartHeader {
-    font-size: 45px;
+    font-size: 25px;
 }
 
 /* APP.HTML */
