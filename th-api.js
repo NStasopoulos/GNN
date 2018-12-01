@@ -92,7 +92,8 @@ function questions() {
             qText.innerHTML = "<p>" + object.questionText +"</p>";
 
             if (object.completed === true) {
-                qText.innerHTML = "Well done pirate!  <img src='Images/reward.png'/>";
+                qText.innerHTML = "Well done pirate!";
+                qImg.innerHTML = "<img class='welldoneimage' src='Images/reward.png'/>";
             }
             else if (object.questionType === "BOOLEAN") {
                 var qType = document.getElementById("qType");
