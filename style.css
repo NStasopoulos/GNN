@@ -244,6 +244,11 @@ dt, dd {
     margin-top: 20px;
 }
 
+#Score {
+    font-size: 30px;
+    text-shadow: gold 0 0 12px, gold 0 0 12px, gold 0 0 12px;
+}
+
 .integer {
     width: 60%;
     height: 150px;
