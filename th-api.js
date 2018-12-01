@@ -91,7 +91,10 @@ function questions() {
             var qText = document.getElementById("qText");
             qText.innerHTML = "<p>" + object.questionText +"</p>";
 
-            if (object.questionType === "BOOLEAN") {
+            if (object.completed === true) {
+                qText.innerHTML = "Well done pirate!  <img src='Images/reward.png'/>";
+            }
+            else if (object.questionType === "BOOLEAN") {
                 var qType = document.getElementById("qType");
                 qType.innerHTML = "True <input class='radio' type='radio' name='answer' value='True'>" +
                     "False <input class='radio' type='radio' name='answer' value='False'>" +
@@ -125,7 +128,6 @@ function questions() {
                     "<input class='submitBut' type='button' name='submit' value='Submit' onclick='Answer(object)'>" +
                     "<input class='skipBut' type='button' name='Skip' value='Skip Question' onclick='Skip()'>"
             }
-
         }
         else {
             //TODO If response not received (error).
@@ -185,22 +187,29 @@ function Answer(object) {
 }
 
 function Skip() {
-    var xhttp = new XMLHttpRequest();
+    console.log(object);
+    if (object.canBeSkipped === false) {
 
-    xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
+        alert("Unfortunately, this question cannot be skipped.");
+    }
+    else if (object.canBeSkipped === true){
 
-            object = JSON.parse(this.responseText);
-
-            //code here
+        if (confirm('If you skip the question you will lose 5 points. Would you like to proceed?')) {
 
         }
-        else {
-            //TODO If response not received (error).
-        }
+    }
+        var xhttp = new XMLHttpRequest();
 
-    };
+        xhttp.onreadystatechange = function () {
 
-    xhttp.open("GET", "https://codecyprus.org/th/api/question?session=" + document.cookie , true);
-    xhttp.send();
+            if (this.readyState === 4 && this.status === 200) {
+                //TODO If response received (success).
+                location.reload();
+            } else {
+                //TODO If response not received (error).
+            }
+        };
+
+        xhttp.open("GET", "https://codecyprus.org/th/api/skip?session=" + document.cookie, true);
+        xhttp.send();
 }
