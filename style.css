@@ -126,6 +126,10 @@ div, body{
     text-transform: uppercase;
 }
 
+#appleaderboard {
+    font-size: 25px;
+}
+
 .apptreasure {
     width: 60%;
     margin-top: 80px;
@@ -266,6 +270,23 @@ dt, dd {
 .welldoneimage {
     width: 80%;
 }
+
+/*-----------------*/
+/* LEADERBOARD HTML*/
+/*-----------------*/
+
+
+#leaderboard {
+    margin: auto;
+    border: 3px solid black;
+    border-radius: 8px;
+}
+
+.lbimage {
+    width: 50%;
+    margin-top: 40px;
+}
+
 
 /*-------*/
 /* MEDIA */

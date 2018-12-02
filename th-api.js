@@ -1,26 +1,6 @@
-// function Answer() {
-//     var xhttp = new XMLHttpRequest();
-//
-//     xhttp.onreadystatechange = function () {
-//         if (this.readyState === 4 && this.status === 200) {
-//
-//             object = JSON.parse(this.responseText);
-//
-//             //code here
-//
-//         }
-//         else {
-//             //TODO If response not received (error).
-//         }
-//
-//     };
-//
-//     xhttp.open("GET", "https://codecyprus.org/th/api/question?session=" + document.cookie , true);
-//     xhttp.send();
-// }
-
 const Aname =  "GNN";
 
+// This function lists all the available treasure hunts.
 function list() {
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -37,9 +17,9 @@ function list() {
                 var linkItem = document.createElement("a");
                 linkItem.innerHTML = object.treasureHunts[i].name;
                 linkItem.href = "login.html?uuid=" + object.treasureHunts[i].uuid;
+                linkItem.onclick = function setCookie(){ document.cookie = "uuid=" + object.treasureHunts[i].uuid};
                 newItem.appendChild(linkItem);
                 challangesList.appendChild(newItem);
-
             }
         }
         else {
@@ -50,11 +30,10 @@ function list() {
     xhttp.send();
 }
 
+// This function gets the username and creates a cookie containing the session id.
 function start() {
     document.getElementById("SubmitButton").onclick = function SaveDetails() {
         var Username = document.getElementById("loginname");
-        var url = new URL(window.location.href);
-        var uuid = url.searchParams.get('uuid');
 
         var xhttp = new XMLHttpRequest();
 
@@ -65,20 +44,22 @@ function start() {
                     alert(object.errorMessages);
                 }
                 else {
-                    document.cookie = object.session;
+                    document.cookie = "session=" + object.session;
                     window.location.href = "questions.html";
                 }
+
             }
             else {
                 //TODO If response not received (error).
             }
         };
 
-        xhttp.open("GET", "https://codecyprus.org/th/api/start?player=" + Username.value + "&app=" + Aname + "&treasure-hunt-id=" + uuid, true);
+        xhttp.open("GET", "https://codecyprus.org/th/api/start?player=" + Username.value + "&app=" + Aname + "&treasure-hunt-id=" + getCookie("uuid"), true);
         xhttp.send();
     };
 }
 
+// This function checks what each question is and displays the corresponding answer boxes and buttons together and sends the session id.
 function questions() {
     var xhttp = new XMLHttpRequest();
 
@@ -92,8 +73,6 @@ function questions() {
 
             var qText = document.getElementById("qText");
             qText.innerHTML = "<p>" + object.questionText +"</p>";
-
-            //Score();
 
             if (object.completed === true) {
                 qText.innerHTML = "Well done pirate!";
@@ -140,10 +119,12 @@ function questions() {
         }
     };
 
-    xhttp.open("GET", "https://codecyprus.org/th/api/question?session=" + document.cookie , true);
+    xhttp.open("GET", "https://codecyprus.org/th/api/question?session=" + getCookie("session") , true);
     xhttp.send();
 }
 
+// This function checks which answer has been selected or given or if it has been answered at all or if it was correct or not.
+// Afterwards it sends the answer and the session id.
 function Answer(object) {
     if (object.questionType === "TEXT") {
         var answer = document.getElementsByClassName("text");
@@ -182,6 +163,7 @@ function Answer(object) {
                 }
                 else if(object.correct === false) {
                     alert("Unfortunately your answer is wrong. You have lost 3 points. Please Try again.");
+                    questions();
                 }
             }
             else {
@@ -190,11 +172,12 @@ function Answer(object) {
 
         };
 
-        xhttp.open("GET", "https://codecyprus.org/th/api/answer?session=" + document.cookie + "&answer=" + ans, true);
+        xhttp.open("GET", "https://codecyprus.org/th/api/answer?session=" + getCookie("session") + "&answer=" + ans, true);
         xhttp.send();
     }
 }
 
+//This function skips the current question and sends the session id.
 function Skip() {
 
     var xhttp = new XMLHttpRequest();
@@ -210,10 +193,11 @@ function Skip() {
         }
     };
 
-    xhttp.open("GET", "https://codecyprus.org/th/api/skip?session=" + document.cookie, true);
+    xhttp.open("GET", "https://codecyprus.org/th/api/skip?session=" + getCookie("session"), true);
     xhttp.send();
 }
 
+// This function confirms with the user if they want to skip the current question and makes sure it was not pressed accidentally.
 function SkipConfirm() {
 
     var xhttp = new XMLHttpRequest();
@@ -238,10 +222,11 @@ function SkipConfirm() {
         }
     };
 
-    xhttp.open("GET", "https://codecyprus.org/th/api/question?session=" + document.cookie, true);
+    xhttp.open("GET", "https://codecyprus.org/th/api/question?session=" + getCookie("session"), true);
     xhttp.send();
 }
 
+// This function shows the current and the final score to the user while and after the game and sends the session id.
 function Score() {
     var xhttp = new XMLHttpRequest();
 
@@ -273,10 +258,11 @@ function Score() {
         }
     };
 
-        xhttp.open("GET", "https://codecyprus.org/th/api/score?session=" + document.cookie, true);
+        xhttp.open("GET", "https://codecyprus.org/th/api/score?session=" + getCookie("session"), true);
         xhttp.send();
 }
 
+// This function gets the location from the user.
 function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition);
     function showPosition(position) {
@@ -284,6 +270,7 @@ function getLocation() {
     }
 }
 
+// This function sends the location to the server with the latitude, longitude and the session id.
 function sendLocation(latitude,longitude) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -295,6 +282,87 @@ function sendLocation(latitude,longitude) {
         }
     };
     xhttp.open("GET", "https://codecyprus.org/th/api/location?" +
-        "session=" + document.cookie + "&latitude=" + latitude + "&longitude=" + longitude, true);
+        "session=" + getCookie("session") + "&latitude=" + latitude + "&longitude=" + longitude, true);
     xhttp.send();
+}
+
+// This function diplays the leaderboard in a table and sends the uuid and the number of players.
+function Leaderboard() {
+    var numOfPlayersLimit = 10;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            //TODO If response received (success).
+            object = JSON.parse(this.responseText);
+
+            var leaderboard = document.getElementById("leaderboard");
+
+            var tableBody = document.createElement('TBODY');
+            leaderboard.appendChild(tableBody);
+
+            for (var i = 0; i < 3; i++) {
+                var th = document.createElement('TH');
+                th.style.fontSize = '22px';
+                tableBody.appendChild(th);
+                if (i === 0) {
+                    th.appendChild(document.createTextNode("Place"));
+                }
+                else if (i === 1) {
+                    th.appendChild(document.createTextNode("Username"));
+                }
+                else if (i === 2) {
+                    th.appendChild(document.createTextNode("Score"));
+                }
+            }
+
+            for (var z = 0; z < numOfPlayersLimit; z++) {
+                var tr = document.createElement('TR');
+                tableBody.appendChild(tr);
+
+                for (var j = 0; j < 3; j++) {
+                    var td = document.createElement('TD');
+                    td.width = '120';
+                    if (j === 0) {
+                        td.appendChild(document.createTextNode(z + 1));
+                        tr.appendChild(td);
+                    }
+                    else if (j === 1) {
+                        td.appendChild(document.createTextNode(object.leaderboard[z].player));
+                        tr.appendChild(td);
+                    }
+                    else if (j === 2) {
+                        td.appendChild(document.createTextNode(object.leaderboard[z].score));
+                        tr.appendChild(td);
+                    }
+                }
+            }
+        }
+    };
+
+    xhttp.open("GET", "https://codecyprus.org/th/api/leaderboard?treasure-hunt-id=" + getCookie("uuid") + "&sorted&limit=" + numOfPlayersLimit, true);
+    xhttp.send();
+}
+
+//Taken from - https://stackoverflow.com/questions/10730362/get-cookie-by-name
+// This function gets the name of the cookie.
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+// This function checks if the user left an uncompleted session and if the user declines the cookie is deleted.
+function checkSession() {
+    if (getCookie("session") !== undefined) {
+        if (confirm('It seems that you have left a game in progress there pirate. Pressing cancel will delete your left of session. Would you like to continue where you left of?')) {
+            window.location.href = "questions.html";
+        }
+        else {
+            delete_cookie();
+        }
+    }
+}
+
+function delete_cookie() {
+    document.cookie = 'session' + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
