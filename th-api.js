@@ -209,6 +209,7 @@ function SkipConfirm() {
             if (object.canBeSkipped === false) {
 
                 alert("Unfortunately, this question cannot be skipped.");
+                questions();
 
             } else if (object.canBeSkipped === true) {
 
@@ -363,6 +364,8 @@ function checkSession() {
     }
 }
 
+//Taken from - https://stackoverflow.com/questions/2144386/how-to-delete-a-cookie
+// This function deletes the session cookie.
 function delete_cookie() {
     document.cookie = 'session' + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
