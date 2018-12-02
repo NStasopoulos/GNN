@@ -11,7 +11,7 @@ function list() {
 
             var object = JSON.parse(this.responseText);
             var challangesList = document.getElementById("challenges");
-            for (var i = 0; i < object.treasureHunts.length; i++) {
+            for (let i = 0; i < object.treasureHunts.length; i++) {
 
                 var newItem = document.createElement("li");
                 var linkItem = document.createElement("a");
@@ -21,6 +21,7 @@ function list() {
                 newItem.appendChild(linkItem);
                 challangesList.appendChild(newItem);
             }
+            console.log(getCookie("uuid"));
         }
         else {
             //TODO If response not received (error).
