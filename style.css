@@ -84,7 +84,7 @@ div, body{
 }
 
 .indexbird {
-    width: 100%;
+    width: 80%;
 }
 
 #StartHeader {
@@ -131,7 +131,7 @@ div, body{
 }
 
 .apptreasure {
-    width: 60%;
+    width: 40%;
     margin-top: 80px;
 }
 
@@ -186,7 +186,7 @@ dt, dd {
 }
 
 .notesmap {
-    width: 60%;
+    width: 50%;
     margin-top: 20px;
 }
 
@@ -268,7 +268,12 @@ dt, dd {
 }
 
 .welldoneimage {
-    width: 80%;
+    width: 60%;
+}
+
+#qLeadLink {
+    font-size: 25px;
+    margin-top: 20px;
 }
 
 /*-----------------*/
@@ -332,6 +337,27 @@ dt, dd {
         padding: 25px 40px;
         transition: 1s;
     }
+    .indexbird {
+        width: 50%;
+    }
+    .apptreasure {
+        width: 30%;
+    }
+    .notesmap {
+        width: 30%;
+    }
+    .testtools {
+        width: 30%;
+    }
+    .loginpirate {
+         width: 30%;
+     }
+    .welldoneimage {
+        width: 30%;
+    }
+    #challenges a {
+        font-size: 30px;
+    }
 }
 
 @media(min-width: 506px) {
@@ -343,7 +369,7 @@ dt, dd {
 
 @media(min-width: 800px) {
     #challenges a {
-        font-size: 40px;
+        font-size: 30px;
     }
 }
 

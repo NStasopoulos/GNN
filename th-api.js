@@ -76,9 +76,12 @@ function questions() {
             qText.innerHTML = "<p>" + object.questionText +"</p>";
 
             if (object.completed === true) {
+                var qLeadLink = document.getElementById("qLeadLink");
                 qText.innerHTML = "Well done pirate!";
                 qImg.innerHTML = "<img class='welldoneimage' src='Images/reward.png'/>";
+                qLeadLink.innerHTML = "Click " + "<a href='leaderboard.html'>" + "here" + "</a>" + " to view the leaderboard.";
                 Score();
+                delete_cookie();
             }
             else if (object.questionType === "BOOLEAN") {
                 var qType = document.getElementById("qType");
