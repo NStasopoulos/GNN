@@ -275,7 +275,9 @@ dt, dd {
     font-size: 25px;
     margin-top: 20px;
 }
-
+a{
+    font-size:25px;
+    color:black;
 }
 /*-----------------*/
 /* LEADERBOARD HTML*/
