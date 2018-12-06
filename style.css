@@ -91,6 +91,12 @@ div, body{
     font-size: 25px;
 }
 
+
+.twitter-timeline{
+    position: relative;
+    
+}
+
 /*----------*/
 /* APP.HTML */
 /*----------*/
@@ -299,6 +305,21 @@ a{
 /*-------*/
 /* MEDIA */
 /*-------*/
+
+
+/*-------*/
+/* TEST */
+/*-------*/
+
+.testh1{
+    font-size: 30px;
+}
+
+.testp{
+    font-size: 20px;
+}
+
+
 
 @media(max-width: 373px){
     .topnav a {
